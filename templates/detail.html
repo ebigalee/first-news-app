@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>My First News App: Detail</title>
+		<meta charset='utf-8'> 
+		<link href='http://fonts.googleapis.com/css?family=Esteban' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+	<body>
+		<main>
+			<h1>Name</h1>
+			<section>
+				{{ object.full_name }}
+			</section>
+		</main>
+	</body>
+</html>
+
