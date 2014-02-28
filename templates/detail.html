@@ -8,10 +8,13 @@
 	</head>
 	<body>
 		<main>
-			<h1>Name</h1>
-			<section>
-				{{ object.full_name }}
-			</section>
+			<h1>{{ object.full_name }}</h1>
+            <h2>A {{ object.age }} year old,
+            {{ object.race }} {{ object.gender|lower }} died on {{ object.date }}
+            in a {{ object.type|lower }} at {{ object.address }} in {{ object.neighborhood }}.</h2>
+        <section>
+	        <p>{{ object.story }}</p>
+	    </section>
 		</main>
 	</body>
 </html>
