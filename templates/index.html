@@ -1,12 +1,25 @@
 <!DOCTYPE HTML>
 <html>
+
+<!-- TO RESTART UP
+pwd
+ls
+cd first-news-app
+. bin/activate  - activates virtualenv
+python app.py - starts flask server
+-->
+
 	<head>
 		<title>My First News App: NICAR 2014</title>
 		<meta charset='utf-8'> 
 		<link href='http://fonts.googleapis.com/css?family=Esteban' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+		<!-- http://flask.pocoo.org/docs/quickstart/ -->
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
 	</head>
 	<body>
+		<div id="map"></div>
 		<main>
 			<h1>Deaths during the L.A. Riots</h1>
 			<section>
@@ -34,5 +47,34 @@
 				</table>
 			</section>
 		</main>
+		<script type="text/javascript">
+            var map = L.map('map').setView([34.055, -118.35], 9);
+            var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>,<a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
+                subdomains: ['otile1','otile2','otile3','otile4']
+            });
+            map.addLayer(mapquestLayer);
+            var data = {
+              "type": "FeatureCollection",
+              "features": [
+                {% for obj in object_list %}
+                {
+                  "type": "Feature",
+                  "properties": {
+                    "full_name": "{{ obj.full_name }}",
+                    "id": "{{ obj.id }}"
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [{{ obj.x }}, {{ obj.y }}]
+                  }
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+              ]
+            };
+            var dataLayer = L.geoJson(data);
+            map.addLayer(dataLayer);
+        </script>
 	</body>
 </html>
