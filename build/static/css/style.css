@@ -1,0 +1,88 @@
+body { 
+	margin: 0;
+	background: #3f4c6b; /* Old browsers */
+}
+
+#map {
+	height: 340px;
+}
+
+main { 
+	width: 960px; 
+	padding: 0 60px; 
+	margin: 0 auto; 
+	/* background: url(../images/skull.png) no-repeat top center; 
+	background-size: 150px; */
+}
+
+a:link, a:visited {
+	color: #222;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: white;
+	text-decoration: underline;
+}
+
+h1 { 
+	color: #eee;
+	padding-top: 0; /* 80px */
+	margin-top: 0.4em;
+	margin-bottom: 0.4em;
+	font: 78px 'Esteban','Helvetica Neue', sans-serif; 
+	font-weight: 400; 
+	text-align: center;
+}
+
+h2 {
+	margin-top: 0;
+	font: 48px/54px 'Esteban','Helvetica Neue', sans-serif; 
+	font-weight: 400; 
+	text-align: center;
+	color: #ccc;
+	border-bottom: 6px double #aaa;
+	padding-bottom: 1.0em;
+}
+
+section {  
+	padding: 0; 
+	margin-bottom: 6.0em;
+}
+
+section p {
+	color: #000;
+	font: 16px/24px 'Helvetica Neue',sans-serif;
+	padding: 0 160px;
+}
+
+.story {
+	background-color: rgba(255,255,255,0.3); 
+	padding: 1.0em 0;
+}
+
+table { 
+	border-collapse: collapse; 
+}
+
+th { 
+	font: 18px 'Esteban', 'Helvetica Neue', sans-serif; 
+	font-weight: 700;
+}
+
+th, td { 
+	padding: 8px; border: 1px solid black; 
+}
+
+td { 
+	font-size: 14px; 
+}
+
+tr:nth-child(odd) { 
+	background-color: rgba(255,255,255,0.5); 
+}
+
+tr:nth-child(even) { 
+	background-color: rgba(255,255,255,0.3); 
+}
