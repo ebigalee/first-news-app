@@ -63,6 +63,7 @@ python app.py - starts flask server
                   "type": "Feature",
                   "properties": {
                     "full_name": "{{ obj.full_name }}",
+                    "age": "{{ obj.age }}",
                     "id": "{{ obj.id }}"
                   },
                   "geometry": {
@@ -73,7 +74,11 @@ python app.py - starts flask server
                 {% endfor %}
               ]
             };
-            var dataLayer = L.geoJson(data);
+            var dataLayer = L.geoJson(data, {
+                onEachFeature: function(feature, layer) {
+                    layer.bindPopup('<a href="' + feature.properties.id + '/">' + feature.properties.full_name + '</a>, ' + feature.properties.age);
+                }
+            });
             map.addLayer(dataLayer);
         </script>
 	</body>
